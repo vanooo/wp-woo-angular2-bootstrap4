@@ -1,0 +1,13 @@
+// import { RouterModule, Routes } from '@angular/routes';
+
+import { SinglepostComponent  } from "./singlepost/singlepost.component";
+import { PostlistComponent    } from "./postlist/postlist.component";
+
+const APP_ROUTES : Routes = [
+  {path:'s',  component : 'SinglepostComponent'},
+  {path:'',   component : 'PostlistComponent'}
+];
+
+export const APP_ROUTE_PROVIDER = [
+  RouterModule(APP_ROUTES)
+]

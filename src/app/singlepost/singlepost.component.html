@@ -1,0 +1,12 @@
+<h1>{{ post?.title?.rendered }}</h1>
+<em class="post-item__date text-muted">{{ post?.date }}</em>
+<div class="post-content">
+   <div class="thumbnail
+               post-content__thumbnail"
+        [ngClass]="{'post-content__thumbnail_show': media}"
+        *ngIf="post?.featured_media > 0">
+       <img *ngIf="media" src="{{ media.media_details.sizes.medium.source_url }}">
+   </div>
+   <div class="post-content__text"
+        [innerHTML]="post?.content?.rendered"></div>
+</div>

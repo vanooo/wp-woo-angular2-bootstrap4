@@ -1,0 +1,8 @@
+<div *ngFor="let post of posts" class="col-6 col-lg-4">
+  <h2>{{post?.title?.rendered}}</h2>
+  <p [innerHTML]="post?.excerpt?.rendered"></p>
+  <!-- <p>{{post|json}}</p> -->
+  <p><a routerLink="/{{post.slug}}"
+        class="btn btn-secondary"
+        role="button">more »</a></p>
+</div>
