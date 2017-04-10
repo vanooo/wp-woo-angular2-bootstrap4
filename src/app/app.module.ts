@@ -3,17 +3,18 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
-// map on service to work
 
+// map on service to work
 import 'rxjs/add/operator/map';
 
 import { AppComponent } from './app.component';
 import { PostsService } from './posts.service';
+import { CookieService } from './cookie.service';
 import { PostlistComponent } from './postlist/postlist.component';
 import { SinglepostComponent } from './singlepost/singlepost.component';
 
 const appRoutes: Routes = [
-  {path:':slug',      component : SinglepostComponent},
+  {path:':slug',   component : SinglepostComponent},
   {path:'',        component : PostlistComponent}
 ]
 
@@ -36,7 +37,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule
   ],
-  providers: [PostsService],
+  providers: [PostsService, CookieService],
   bootstrap: [AppComponent]
 })
 

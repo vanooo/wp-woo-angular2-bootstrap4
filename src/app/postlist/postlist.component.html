@@ -1,8 +1,32 @@
-<div *ngFor="let post of posts" class="col-6 col-lg-4">
+<h1>Posts</h1>
+<form #f="ngForm" novalidate
+      style="display: block;"
+      class="edit">
+    <input name="id"    [(ngModel)]="selectpost.id" />
+    <input name="title" [(ngModel)]="selectpost.title" />
+    <a  (click)     = "updatePost(f)"
+        class       = "btn btn-secondary"
+        role        = "button">Save</a>
+</form>
+<p id="responseMessage"></p>
+<hr>
+{{products | json}}
+<hr>
+{{me | json}}
+<hr>
+
+<!-- <div *ngFor="let post of posts" class="col-6 col-lg-4"> -->
+<div *ngFor="let post of posts" class="col-12">
   <h2>{{post?.title?.rendered}}</h2>
-  <p [innerHTML]="post?.excerpt?.rendered"></p>
+  <!-- <p [innerHTML]="post?.excerpt?.rendered"></p> -->
   <!-- <p>{{post|json}}</p> -->
-  <p><a routerLink="/{{post.slug}}"
-        class="btn btn-secondary"
-        role="button">more »</a></p>
+  <!-- <p *ngIf="user.capabilities.edit_posts"> -->
+    <a  (click)     = "editPost(post,f)"
+        class       = "btn btn-secondary"
+        role        = "button">Edit</a>
+  <!-- </p> -->
+  <p>
+    <a  routerLink  = "/{{post.slug}}"
+        class       = "btn btn-secondary"
+        role        = "button">more »</a></p>
 </div>
